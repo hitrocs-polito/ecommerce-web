@@ -6,13 +6,14 @@ const FooterStyle = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: white;
-  margin: 40px 0 0 0;
+  margin: 40px 0 0;
   padding: 33.42px 29px;
   border-radius: 30px 30px 0 0;
   font-weight: 500;
 
   @media screen and (max-width: 830px){
     grid-template-columns: 1fr 1fr;
+    padding: 33.42px 0px;
   }
 `
 
@@ -56,7 +57,6 @@ const ListStyle = styled.li`
 const LangStyle = styled.li`
   display: flex;
   gap: 10px;
-
   
 `
 
@@ -67,10 +67,15 @@ const SocialStyle = styled.ul`
   align-items: start;
   margin: 0;
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 768px){
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 0;
+  }
+
+  @media screen and (max-width: 500px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 `
 
