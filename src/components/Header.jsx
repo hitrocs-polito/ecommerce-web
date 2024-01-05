@@ -6,6 +6,7 @@ import CartContext from "./CartContext"
 import LikedContext from "./LikedContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
+import {Link} from "react-router-dom"
 
 
 const StyledHeader = styled.header`
@@ -58,11 +59,11 @@ const StyledNav = styled.div`
   }
 `;
 
-const NavLink = styled.a`
-  color: #101010;
-  text-decoration: none;
-  position: relative;
-`
+// const NavLink = styled.a`
+//   color: #101010;
+//   text-decoration: none;
+//   position: relative;
+// `
 
 const CartCounter = styled.span`
   position: absolute;
@@ -89,8 +90,8 @@ function Header() {
         <Wrapper>
           <Logo href={"/"}>X-MAX MOBILE</Logo>
           <StyledNav>
-            <NavLink href="/"><FontAwesomeIcon icon={farHeart} color="#aaa" size="2x" />{<CartCounter>{likedProducts.length}</CartCounter>}</NavLink>
-            <NavLink href="/"><FaShoppingCart size={30}/><CartCounter>{cartProducts.length}</CartCounter></NavLink>
+            <Link path="/liked"><FontAwesomeIcon icon={farHeart} color="#aaa" size="2x" />{<CartCounter>{likedProducts.length}</CartCounter>}</Link>
+            <Link path="/cart"><FaShoppingCart size={30}/><CartCounter>{cartProducts.length}</CartCounter></Link>
           </StyledNav>
         </Wrapper>
       </Center>

@@ -5,6 +5,9 @@ import Footer from "./components/Footer"
 import { CartContextProvider } from "./components/CartContext"
 import { LikedContextProvider } from "./components/LikedContext"
 import CategorySection from "./components/CategorySection"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import CartScreen from "./components/CartScreen"
+import LikedScreen from "./components/LikedScreen"
 
 const GlobalStyles = createGlobalStyle`
   body{
@@ -17,7 +20,7 @@ const GlobalStyles = createGlobalStyle`
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyles />
       <CartContextProvider>
       <LikedContextProvider>
@@ -28,7 +31,12 @@ function App() {
         <Footer />
       </LikedContextProvider>
       </CartContextProvider>
-    </>
+
+      <Routes>
+      <Route path="/liked" element={<LikedScreen />} />
+      <Route path="/cart" element={<CartScreen />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

@@ -21,8 +21,6 @@ const StyledHeart = styled(FontAwesomeIcon)`
   }
 `;
 
-
-
 const Card = styled.div`
   position: relative;
   border-radius: 15px;
@@ -37,7 +35,7 @@ const Card = styled.div`
     }
 
     Title {
-      font-size: 14px;
+      font-size: 22px;
     }
   }
 `;
@@ -65,8 +63,8 @@ const WhiteBox = styled.div`
   
 
   img{
-    max-width: 200px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 350px;
   }
 `
 

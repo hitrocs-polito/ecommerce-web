@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import React from 'react'
 import phoneDatabase from '../database/products';
 import Center from './Center';
 import ProductCard from './ProductCard';
 import styled from 'styled-components';
+import { Dropdown } from 'react-bootstrap';
 
 const ProductsGrid = styled.div`
   display: grid;
@@ -25,7 +27,6 @@ const ProductsGrid = styled.div`
     grid-template-columns: 1fr;
     gap: 10px;
   }
-
 `;
 
 const Title = styled.h2`
@@ -70,6 +71,7 @@ const CategorySection = () => {
   const [selectedModel, setSelectedModel] = useState('Все');
   const [filteredPhones, setFilteredPhones] = useState(phoneDatabase);
   const [selectedButton, setSelectedButton] = useState(null);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleModelClick = (model) => {
     setSelectedModel(model);
@@ -83,19 +85,40 @@ const CategorySection = () => {
     <Center>
       <Title>Категории</Title>
       <CategoryDesign>
-        <ModelDesign isSelected={selectedButton === 'Apple'}><button onClick={() => handleModelClick('Apple')}>Apple</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Xiaomi'}><button onClick={() => handleModelClick('Xiaomi')}>Xiaomi</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Samsung'}><button onClick={() => handleModelClick('Samsung')}>Samsung</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Oneplus'}><button onClick={() => handleModelClick('Oneplus')}>OnePlus</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'LG'}><button onClick={() => handleModelClick('LG')}>LG</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Motorola'}><button onClick={() => handleModelClick('Motorola')}>Motorola</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Sony'}><button onClick={() => handleModelClick('Sony')}>Sony</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Huawei'}><button onClick={() => handleModelClick('Huawei')}>Huawei</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Vivo'}><button onClick={() => handleModelClick('Vivo')}>Vivo</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Asus'}><button onClick={() => handleModelClick('Asus')}>Asus</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Artel'}><button onClick={() => handleModelClick('Artel')}>Artel</button></ModelDesign>
-        <ModelDesign isSelected={selectedButton === 'Novey'}><button onClick={() => handleModelClick('Novey')}>Novey</button></ModelDesign>
+        {/* Show buttons for larger screens */}
+        {!isDropdownOpen && (
+          <React.Fragment>
+            {/* Your existing button components */}
+          </React.Fragment>
+        )}
 
+        {/* Show dropdown for smaller screens */}
+        <Dropdown
+          show={isDropdownOpen}
+          onToggle={() => setIsDropdownOpen(!isDropdownOpen)}
+        >
+          {/* <Dropdown.Toggle variant="success" id="dropdown-basic">
+            Выбрать категорию
+          </Dropdown.Toggle> */}
+
+          <button onClick={() => setIsDropdownOpen(!isDropdownOpen)}>
+            Выбрать категорию
+          </button>
+          <Dropdown.Menu>
+              <ModelDesign isSelected={selectedButton === 'Apple'}><button onClick={() => handleModelClick('Apple')}>Apple</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Xiaomi'}><button onClick={() => handleModelClick('Xiaomi')}>Xiaomi</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Samsung'}><button onClick={() => handleModelClick('Samsung')}>Samsung</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Oneplus'}><button onClick={() => handleModelClick('Oneplus')}>OnePlus</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'LG'}><button onClick={() => handleModelClick('LG')}>LG</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Motorola'}><button onClick={() => handleModelClick('Motorola')}>Motorola</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Sony'}><button onClick={() => handleModelClick('Sony')}>Sony</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Huawei'}><button onClick={() => handleModelClick('Huawei')}>Huawei</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Vivo'}><button onClick={() => handleModelClick('Vivo')}>Vivo</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Asus'}><button onClick={() => handleModelClick('Asus')}>Asus</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Artel'}><button onClick={() => handleModelClick('Artel')}>Artel</button></ModelDesign>
+              <ModelDesign isSelected={selectedButton === 'Novey'}><button onClick={() => handleModelClick('Novey')}>Novey</button></ModelDesign>
+          </Dropdown.Menu>
+        </Dropdown>
       </CategoryDesign>
       <hr />
       

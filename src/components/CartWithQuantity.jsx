@@ -30,7 +30,7 @@ const CartCounter = styled.span`
   font-size: 20px;
   min-width: 15px;
   text-align: center; 
-  font-weight: 500;  
+  font-weight: 500;
 `
 
 
@@ -63,7 +63,7 @@ function CartWithQuantity({onClick}) {
   return (
     <CartContainer>
       {showCart ? (
-        <FaShoppingCart size={24} color="#FFA542" onClick={toggleCart} />
+        <FaShoppingCart size={30} color="#FFA542" onClick={toggleCart} />
       ) : (
         <QuantityControl>
           <QuantityButton onClick={handleDecrement}>
