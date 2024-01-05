@@ -14,19 +14,31 @@ const Bg = styled.div`
 const Title =  styled.h1`
   margin: 30px 50px;
   font-weight: normal;
+
+  @media (max-width: 870px) {
+    margin: 30px 0 0 30px;
+    font-size: 1.2rem;
+  }
 `
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 5rem;
+  gap: 1rem;
   justify-content: center;
   height: 187px;
   overflow: hidden;
   img {
     width: 300px;
-    overflow: hidden; /* Add overflow: hidden to hide overflowing content */
-     /* Adjust as needed */
+  }
+
+  @media (max-width: 870px) {
+    overflow: visible;
+    img {
+      gap: 10px;
+      margin-right: 1rem;
+      width: 180px;
+    }
   }
 `
 

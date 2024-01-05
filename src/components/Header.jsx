@@ -8,8 +8,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as farHeart} from '@fortawesome/free-regular-svg-icons';
 
 
-const StyledHeader =  styled.header`
-  background-color: #EAEAEA;  
+const StyledHeader = styled.header`
+  background-color: #EAEAEA;
+  padding: 1rem;
+
+  @media (max-width: 768px) {
+    /* position: fixed;
+    bottom: 0;
+    left: 0; */
+    z-index: 100;
+    padding: .5rem 0.5rem;
+    /* display: flex; */
+    flex-direction: row;
+    justify-content: start;
+  }
 `;
 
 const Logo = styled.a`
@@ -18,17 +30,33 @@ const Logo = styled.a`
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   font-size: 25px;
-`
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 768px) {
+    margin-bottom: 1rem;
+  }
+`;
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between; 
-  `
+  align-items: center;
+  justify-content: space-between;
+
+  @media screen and (max-width: 768px) {
+    align-items: center;
+  }
+`;
 
 const StyledNav = styled.div`
   display: flex;
   gap: 30px;
-`
+
+  @media (max-width: 768px) {
+    gap: 25px;
+  }
+`;
 
 const NavLink = styled.a`
   color: #101010;
@@ -38,14 +66,14 @@ const NavLink = styled.a`
 
 const CartCounter = styled.span`
   position: absolute;
-  top: -8px; /* Adjust top position */
-  right: -10px; /* Adjust right position */
+  top: -8px; 
+  right: -10px; 
   background-color: #FFA542;
-  color: white; /* Text color for the count */
-  border-radius: 50%; /* To create a circular shape */
-  padding: 3px; /* Padding around the count */
-  font-size: 12px; /* Font size of the count */
-  min-width: 15px; /* Minimum width to ensure the count is visible */
+  color: white; 
+  border-radius: 50%; 
+  padding: 3px; 
+  font-size: 12px; 
+  min-width: 15px; 
   text-align: center; 
   font-weight: 500;
 `

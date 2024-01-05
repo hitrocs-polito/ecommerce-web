@@ -10,11 +10,18 @@ const FooterStyle = styled.div`
   padding: 33.42px 29px;
   border-radius: 30px 30px 0 0;
   font-weight: 500;
+
+  @media screen and (max-width: 830px){
+    grid-template-columns: 1fr 1fr;
+  }
 `
 
 const FooterTitle = styled.h2`
   margin: 0;
   cursor: pointer;
+  @media screen and (max-width: 830px){
+    display: none;
+  }
 `
 
 const UlStyle = styled.ul`
@@ -23,6 +30,19 @@ const UlStyle = styled.ul`
   gap: 15px;
   margin: 0;
   justify-content: space-evenly;
+  
+`
+
+const LinkStyle = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 0;
+  justify-content: space-evenly;
+
+  @media screen and (max-width: 830px){
+    display: none;
+  }
 `
 
 const ListStyle = styled.li`
@@ -36,6 +56,8 @@ const ListStyle = styled.li`
 const LangStyle = styled.li`
   display: flex;
   gap: 10px;
+
+  
 `
 
 const SocialStyle = styled.ul`
@@ -44,6 +66,12 @@ const SocialStyle = styled.ul`
   justify-content: center;
   align-items: start;
   margin: 0;
+
+  @media screen and (max-width: 768px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0;
+  }
 `
 
 function Footer() {
@@ -51,11 +79,11 @@ function Footer() {
     <Center>
       <FooterStyle>
         <FooterTitle>X-MAX MOBILE</FooterTitle>
-        <UlStyle>
+        <LinkStyle>
           <ListStyle>Избранное</ListStyle>
           <ListStyle>Корзина</ListStyle>
           <ListStyle>Контакты</ListStyle>
-        </UlStyle>  
+        </LinkStyle>  
         
         <UlStyle>
           <ListStyle>Условия сервиса</ListStyle>

@@ -12,12 +12,12 @@ const StyledHeart = styled(FontAwesomeIcon)`
   position: absolute;
   top: 15px;
   right: 15px;
-  color: #ccc; /* Default color */
+  color: #ccc;
   cursor: pointer;
 
   &:hover,
   &.active {
-    color: red; /* Red on hover and active state */
+    color: red; 
   }
 `;
 
@@ -27,16 +27,26 @@ const Card = styled.div`
   position: relative;
   border-radius: 15px;
   transition: box-shadow 0.3s ease-in-out;
-  &:hover{
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  display: flex;
+  flex-direction: column;
 
-`
+  @media (max-width: 480px) {
+    img {
+      max-width: 100%; 
+      height: auto; 
+    }
+
+    Title {
+      font-size: 14px;
+    }
+  }
+`;
+
 const Image = styled.img`
   transition: transform 0.3s ease-in-out;
 
   &:hover {
-    transform: scale(1.03); /* Zoom to +15% on hover */
+    transform: scale(1.03);
   }
 `;
 
@@ -52,6 +62,7 @@ const WhiteBox = styled.div`
   justify-content: center;
   gap: 15px;
   border-radius: 15px;
+  
 
   img{
     max-width: 200px;

@@ -11,7 +11,23 @@ const ProductsGrid = styled.div`
   font-family: 'Montserrat';
   margin-top: 20px;
 
-`
+  @media (max-width: 1100px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+`;
+
 const Title = styled.h2`
   font-size: 1.5rem;
   margin: 20px 0 20px 0;
@@ -19,12 +35,17 @@ const Title = styled.h2`
 `
 const CategoryDesign = styled.div`
   display: flex;
-  gap: 10px 30px;
   flex-wrap: wrap;
+  gap: 10px 30px;
   justify-content: left;
   align-items: center;
   margin: 0 0 20px 0;
-`
+
+  @media (max-width: 768px) {
+    gap: 10px 15px;
+    justify-content: flex-start;
+  }
+`;
 
 const ModelDesign = styled.div`
   button{
@@ -37,6 +58,9 @@ const ModelDesign = styled.div`
     font-family: 'Montserrat';
     background-color: ${(props) => props.isSelected ? '#FFA542' : 'white'};
 
+    @media (max-width: 768px) {
+      padding: 5px 20px;
+  }
   }
 `
 
