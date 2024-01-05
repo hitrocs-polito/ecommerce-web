@@ -67,7 +67,7 @@ const SocialStyle = styled.ul`
   align-items: start;
   margin: 0;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 700px){
     display: grid;
     grid-template-columns: 1fr 1fr;
     margin-bottom: 0;
